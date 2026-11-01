@@ -1,0 +1,6 @@
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; color: #0f172a; background: #f8fafc; }
+  button, a { cursor: pointer; }
+  ::selection { background: #a7f3d0; color: #064e3b; }
+}

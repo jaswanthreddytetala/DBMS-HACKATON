@@ -1,0 +1,4 @@
+package com.voltflow.controller;
+import com.voltflow.entity.Charger; import com.voltflow.service.ChargerService; import jakarta.validation.Valid; import lombok.RequiredArgsConstructor; import org.springframework.http.*; import org.springframework.web.bind.annotation.*; import java.util.List;
+@RestController @RequestMapping("/api/chargers") @RequiredArgsConstructor
+public class ChargerController { private final ChargerService service; @GetMapping List<Charger> list(@RequestParam(required=false)Long stationId){return service.list(stationId);} @PostMapping ResponseEntity<Charger> create(@RequestParam Long stationId,@Valid @RequestBody Charger c){return ResponseEntity.status(HttpStatus.CREATED).body(service.create(c,stationId));} @PutMapping("/{id}") Charger update(@PathVariable Long id,@Valid @RequestBody Charger c){return service.update(id,c);} }

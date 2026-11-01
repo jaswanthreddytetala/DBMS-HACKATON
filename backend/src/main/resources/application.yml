@@ -1,0 +1,21 @@
+server:
+  port: ${SERVER_PORT:8080}
+spring:
+  profiles:
+    default: local
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/voltflow}
+    username: ${DB_USERNAME:voltflow}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: ${DDL_AUTO:validate}
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+  cors-origin: ${CORS_ORIGIN:http://localhost:8443}
